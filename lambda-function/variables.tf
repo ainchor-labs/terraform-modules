@@ -20,5 +20,6 @@ variable "timeout" {
 }
 
 variable "env_vars" {
-  type = map(string)
+  type    = map(string)
+  default = {}
 }
