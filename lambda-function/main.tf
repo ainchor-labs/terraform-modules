@@ -12,7 +12,6 @@ resource "aws_lambda_function" "lambda_function" {
   }
   function_name   = var.function_name
   role            = var.iam_role_arn
-  handler         = var.handler
   memory_size     = var.memory
   package_type    = "Image"
   timeout         = var.timeout
