@@ -18,7 +18,3 @@ resource "aws_lambda_function" "lambda_function" {
   timeout         = var.timeout
   image_uri       = "${aws_ecr_repository.lambda_repository.repository_url}:latest"
 }
-
-output "lambda_function_arn" {
-  value = aws_lambda_function.lambda_function.arn
-}
