@@ -1,23 +1,24 @@
 variable "function_name" {
-  description = "The name of the Lambda function."
-}
-
-variable "docker_image_tag" {
-  description = "The tag of the Docker image stored in the ECR repository."
+  type = string
 }
 
 variable "iam_role_arn" {
-  description = "The tag of the Docker image stored in the ECR repository."
+  type = string
 }
 
-variable "handler" {
-  description = "The tag of the Docker image stored in the ECR repository."
-}
 
 variable "memory" {
-
+  type = number
 }
 
 variable "product_name" {
+  type = string
+}
 
+variable "timeout" {
+  type = number
+}
+
+variable "env_vars" {
+  type = map(string)
 }
