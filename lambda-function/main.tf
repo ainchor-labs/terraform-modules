@@ -7,13 +7,10 @@ resource "aws_ecr_repository" "lambda_repository" {
 }
 
 resource "aws_lambda_function" "lambda_function" {
-
-  dynamic "environment" {
-    for_each = var.env_vars != {} ? [1] : []
-    content {
-        variables = var.env_vars
-    }
+  environment {
+    variables = var.env_vars
   }
+
   function_name   = "${var.product_name}-${var.function_name}"
   role            = var.iam_role_arn
   memory_size     = var.memory
