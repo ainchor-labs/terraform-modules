@@ -15,5 +15,5 @@ resource "aws_lambda_function" "lambda_function" {
   memory_size     = var.memory
   package_type    = "Image"
   timeout         = var.timeout
-  image_uri       = "${aws_ecr_repository.lambda_repository.repository_url}-function-repo:latest"
+  image_uri       = "${aws_ecr_repository.lambda_repository.repository_url}:latest"
 }
