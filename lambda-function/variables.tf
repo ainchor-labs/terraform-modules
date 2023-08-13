@@ -25,3 +25,8 @@ variable "env_vars" {
     KEY = "VALUE"
   }
 }
+
+variable "tmp_storage" {
+  type = number
+  default = 512
+}
