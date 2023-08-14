@@ -30,8 +30,3 @@ variable "tmp_storage" {
   type = number
   default = 512
 }
-
-variable "image_uri" {
-  type = string
-  default = "VALUE"
-}
