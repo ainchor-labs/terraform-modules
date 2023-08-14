@@ -7,6 +7,7 @@ resource "aws_ecr_repository" "lambda_repository" {
 }
 
 resource "aws_lambda_function" "lambda_function" {
+  depends_on = [ aws_ecr_repository.lambda_repository ]
   environment {
     variables = var.env_vars
   }
