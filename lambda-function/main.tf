@@ -1,3 +1,7 @@
+provider "github" {
+
+}
+
 provider "aws" {
   region = "us-east-1"
 }
@@ -9,7 +13,7 @@ resource "aws_ecr_repository" "lambda_repository" {
 
 # Pull Docker image
 resource "git_repository" "docker_repo" {
-  clone_url = "https://github.com/ainchor-labs/ainchor-news"
+  clone_url = "https://github.com/ainchor-labs/ainchor-news.git"
 }
 
 # Create Docker Image
