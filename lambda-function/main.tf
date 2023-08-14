@@ -2,9 +2,29 @@ provider "aws" {
   region = "us-east-1"
 }
 
+# Create ECR Repo
 resource "aws_ecr_repository" "lambda_repository" {
   name = "${var.product_name}/${var.function_name}-function-repo"
 }
+
+# Pull Docker image
+resource "git_repository" "docker_repo" {
+  clone_url = "https://github.com/ainchor-labs/ainchor-news"
+}
+
+# Create Docker Image
+resource "null_resource" "docker_build" {
+  triggers = {
+    repository = git_repository.docker_repo.clone_url
+  }
+
+  depends_on = [git_repository.docker_repo]
+
+  provisioner "local-exec" {
+    command = "docker build -t my-docker-image -f ${git_repository.docker_repo.local_path}/${var.function-name}/Dockerfile ${git_repository.docker_repo.local_path}/${var.function-name}"
+  }
+}
+
 
 # Use the AWS CLI to authenticate Docker to your ECR registry
 resource "null_resource" "docker_auth" {
@@ -25,7 +45,7 @@ resource "null_resource" "push_to_ecr" {
   }
 
   provisioner "local-exec" {
-    command = "docker tag your-app-image:latest ${aws_ecr_repository.lambda_repository.repository_url}:latest && docker push ${aws_ecr_repository.lambda_repository.repository_url}:latest"
+    command = "docker tag ${git_repository.docker_repo.local_path}/${var.function-name}:latest ${aws_ecr_repository.lambda_repository.repository_url}:latest && docker push ${aws_ecr_repository.lambda_repository.repository_url}:latest"
   }
 }
 
