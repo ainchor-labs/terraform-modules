@@ -9,7 +9,7 @@ resource "aws_ecr_repository" "lambda_repository" {
 # Use the AWS CLI to authenticate Docker to your ECR registry
 resource "null_resource" "docker_auth" {
   provisioner "local-exec" {
-    command = "aws ecr get-login-password --region ${aws_ecr_repository.lambda_repository.region} | docker login --username AWS --password-stdin ${aws_ecr_repository.lambda_repository.repository_url}"
+    command = "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${aws_ecr_repository.lambda_repository.repository_url}"
   }
 }
 
