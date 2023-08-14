@@ -1,0 +1,7 @@
+{
+    "Action": [
+      "lambda:InvokeFunction"
+    ],
+    "Resource": "*",
+    "Effect": "Allow"
+}

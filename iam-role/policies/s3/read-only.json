@@ -1,0 +1,9 @@
+{
+    "Action": [
+      "s3:Get*",
+      "s3:List*",
+      "s3:Describe*"
+    ],
+    "Resource": "*",
+    "Effect": "Allow"
+}

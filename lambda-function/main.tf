@@ -11,9 +11,9 @@ resource "aws_lambda_function" "lambda_function" {
     variables = var.env_vars
   }
 
-  ephemeral_storage {
-    size = var.tmp_storage
-  }
+  # ephemeral_storage {
+  #   size = var.tmp_storage
+  # }
 
   function_name   = "${var.product_name}-${var.function_name}"
   role            = var.iam_role_arn
