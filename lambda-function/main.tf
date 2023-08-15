@@ -1,6 +1,4 @@
-provider "aws" {
-  region = "us-east-1"
-}
+provider "aws" { }
 
 resource "aws_ecr_repository" "lambda_repository" {
   name = "lambda_repository"
