@@ -1,6 +1,6 @@
-provider "aws" { 
-	region = "us-east-1"
-}
+# provider "aws" { 
+# 	region = "us-east-1"
+# }
 
 resource "aws_ecr_repository" "lambda_repository" {
   name = "${var.product_name}/${var.function_name}-function-repo"
