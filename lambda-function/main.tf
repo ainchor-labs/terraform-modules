@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_ecr_repository" "lambda_repository" {
-  name = lambda_repository
+  name = "lambda_repository"
 }
 
 resource "aws_lambda_function" "lambda_function" {
