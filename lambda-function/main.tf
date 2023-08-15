@@ -2,10 +2,6 @@ provider "aws" {
 	region = "us-east-1"
 }
 
-# resource "aws_ecr_repository" "lambda_repository" {
-#   name = "${var.product_name}/${var.function_name}"
-# }
-
 resource "aws_lambda_function" "lambda_function" {
   environment {
     variables = var.env_vars
