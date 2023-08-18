@@ -1,6 +1,6 @@
 {
     "Action": [
-        "states:*"
+        "transcribe:*"
     ],
     "Resource": "*",
     "Effect": "Allow"
