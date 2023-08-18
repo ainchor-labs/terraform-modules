@@ -16,16 +16,18 @@ resource "aws_iam_role" "iam_role" {
     )
 }
 
-foreach var.access_policies as key, value {
-  resource "aws_iam_policy" "${key}_policy" {
-    name   = "${var.role_name}-${key}-policy"
-    policy = file("${path.module}/policies/${key}/${value}.json")
-  }
+resource "aws_iam_policy" "policy" {
+  for_each = var.access_policies
+
+  name   = "${var.role_name}-${each.key}-policy"
+  policy = file("${path.module}/policies/${each.key}/${each.value}.json")
 }
 
-foreach var.access_policies as key, value {
-  resource "aws_iam_policy_attachment" "${key}_attachment" {
-    policy_arn = aws_iam_policy.${key}_policy.arn
-    roles      = [aws_iam_role.role.name]
-  }
+
+resource "aws_iam_policy_attachment" "policy_attachments" {
+  for_each = var.access_policies
+
+  name       = "${each.key}-attachment"
+  policy_arn = aws_iam_policy.each.key_policy.arn
+  roles      = [aws_iam_role.role.name]
 }
