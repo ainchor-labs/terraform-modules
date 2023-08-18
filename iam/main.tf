@@ -19,7 +19,7 @@ resource "aws_iam_role" "iam_role" {
 resource "aws_iam_policy" "policy" {
   for_each = var.access_policies
 
-  name   = "${var.role_name}-${each.key}-policy"
+  name   = "${var.name}-${each.key}-policy"
   policy = file("${path.module}/policies/${each.key}/${each.value}.json")
 }
 
