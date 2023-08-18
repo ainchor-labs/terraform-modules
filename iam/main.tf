@@ -19,15 +19,14 @@ resource "aws_iam_role" "iam_role" {
 resource "aws_iam_policy" "policy" {
   for_each = var.access_policies
 
-  name   = "${var.name}-${each.key}-policy"
+  name   = "${var.name}-${each.key}-policy"  # Use var.name instead of var.role_name
   policy = file("${path.module}/policies/${each.key}/${each.value}.json")
 }
 
-
 resource "aws_iam_policy_attachment" "policy_attachments" {
-  for_each = var.access_policies
+  for_each = aws_iam_policy.policy  # Use the correct reference
 
   name       = "${each.key}-attachment"
-  policy_arn = aws_iam_policy.each.key_policy.arn
+  policy_arn = each.value.arn  # Use each.value.arn to access the ARN of the policy
   roles      = [aws_iam_role.iam_role.name]
 }
