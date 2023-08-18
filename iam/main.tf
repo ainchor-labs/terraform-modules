@@ -10,7 +10,7 @@ resource "aws_iam_role" "iam_role" {
             Action = "sts:AssumeRole",
             Effect = "Allow",
             Principal = {
-                Service = "${var.assume_role}.amazonaws.com"
+                Service = "${var.assume}.amazonaws.com"
             }
         }]}
     )
