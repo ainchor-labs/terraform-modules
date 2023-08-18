@@ -21,9 +21,7 @@ variable "timeout" {
 
 variable "env_vars" {
   type    = map(string)
-  default = {
-    KEY = "VALUE"
-  }
+  default = { }
 }
 
 variable "tmp_storage" {
