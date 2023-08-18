@@ -1,0 +1,9 @@
+{
+    "Action": [
+        "secretsmanager:Get*",
+        "secretsmanager:List*",
+        "secretsmanager:Describe*"
+    ],
+    "Resource": "*",
+    "Effect": "Allow"
+}

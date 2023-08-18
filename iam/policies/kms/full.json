@@ -1,0 +1,7 @@
+{
+    "Action": [
+      "kms:*"
+    ],
+    "Resource": "*",
+    "Effect": "Allow"
+}

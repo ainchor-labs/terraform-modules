@@ -1,0 +1,7 @@
+{
+    "Action": [
+        "states:*"
+    ],
+    "Resource": "*",
+    "Effect": "Allow"
+}

@@ -1,0 +1,7 @@
+{
+    "Action": [
+      "polly:*"
+    ],
+    "Resource": "*",
+    "Effect": "Allow"
+}

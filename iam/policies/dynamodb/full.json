@@ -1,0 +1,7 @@
+{
+    "Action": [
+      "dynamodb:*"
+    ],
+    "Resource": "*",
+    "Effect": "Allow"
+}
