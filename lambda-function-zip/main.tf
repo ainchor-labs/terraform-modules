@@ -6,11 +6,11 @@ resource "aws_lambda_function" "lambda_function" {
   environment {
     variables = var.env_vars
   }
-
+  filename        = var.filename
   function_name   = "${var.product_name}-${var.function_name}"
-  image_uri       = var.image_uri
+  handler         = "app.handler"
   role            = var.iam_role_arn
   memory_size     = var.memory
-  package_type    = "Image"
+  runtime         = var.runtime
   timeout         = var.timeout
 }

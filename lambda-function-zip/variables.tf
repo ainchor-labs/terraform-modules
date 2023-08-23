@@ -31,6 +31,10 @@ variable "tmp_storage" {
   default = 512
 }
 
-variable "image_uri" {
+variable "filename" {
+  type = string
+}
+
+variable "runtime" {
   type = string
 }
