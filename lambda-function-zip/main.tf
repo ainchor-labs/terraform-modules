@@ -1,7 +1,3 @@
-provider "aws" { 
-	region = "us-east-1"
-}
-
 resource "aws_lambda_function" "lambda_function" {
   environment {
     variables = var.env_vars
