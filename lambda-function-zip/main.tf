@@ -13,5 +13,5 @@ resource "aws_lambda_function" "lambda_function" {
   memory_size      = var.memory
   runtime          = var.runtime
   timeout          = var.timeout
-  source_code_hash = base64sha256(file(var.filename))
+  source_code_hash = base64sha256(filebase64(var.filename))
 }
