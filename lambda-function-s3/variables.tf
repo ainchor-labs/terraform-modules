@@ -31,10 +31,6 @@ variable "tmp_storage" {
   default = 512
 }
 
-variable "filename" {
-  type = string
-}
-
 variable "runtime" {
   type = string
 }
