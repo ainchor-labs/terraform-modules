@@ -9,5 +9,5 @@ resource "aws_lambda_function" "lambda_function" {
   runtime          = var.runtime
   timeout          = var.timeout
   s3_bucket        = "ainchor-news-lambda-code-bucket"
-  s3_key           = "${var.product_name}-${var.function_name}.zip"
+  s3_key           = "${var.function_name}.zip"
 }
