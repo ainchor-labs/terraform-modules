@@ -1,3 +1,8 @@
+data "aws_s3_bucket_object" "existing" {
+  bucket = "ainchor-news-lambda-code-bucket"
+  key    = "${var.function_name}.zip"
+}
+
 resource "aws_lambda_function" "lambda_function" {
   environment {
     variables = var.env_vars
@@ -10,4 +15,5 @@ resource "aws_lambda_function" "lambda_function" {
   timeout          = var.timeout
   s3_bucket        = "ainchor-news-lambda-code-bucket"
   s3_key           = "${var.function_name}.zip"
+  s3_object_version = data.aws_s3_bucket_object.existing.version_id
 }
