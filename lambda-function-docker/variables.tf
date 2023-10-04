@@ -11,10 +11,6 @@ variable "memory" {
   type = number
 }
 
-variable "product_name" {
-  type = string
-}
-
 variable "timeout" {
   type = number
 }
